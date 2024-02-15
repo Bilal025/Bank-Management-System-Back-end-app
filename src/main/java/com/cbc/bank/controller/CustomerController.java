@@ -34,16 +34,22 @@ public class CustomerController {
     }   
 
     @PostMapping("/login") //  http://localhost:8099/customer/login
-    public ResponseEntity<String> login(@RequestBody CustomerWrapper customerWrapper) {
-
+    public boolean login(@RequestBody CustomerWrapper customerWrapper) {
+    	boolean a = false;
         try {
-            customerService.login(customerWrapper);
-            return BankUtils.getResponseEntity("Login Success", HttpStatus.OK);
-
+            boolean reply = customerService.login(customerWrapper);
+            if(reply) {
+            	return true;
+            }
+            //return BankUtils.getResponseEntity("Login Success", HttpStatus.OK);
+            else {
+            	a = false;
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
-        return BankUtils.getResponseEntity("Enter Valid Data", HttpStatus.INTERNAL_SERVER_ERROR);
+        //return BankUtils.getResponseEntity("Enter Valid Data", HttpStatus.INTERNAL_SERVER_ERROR);
+		return a;
     }
 
     @GetMapping("/get")
