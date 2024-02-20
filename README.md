@@ -8,11 +8,11 @@ Backend: Spring Boot, Java, Spring Data JPA, Maven, JAVA JDK 17, REST API.
 Database: Oracle
 
 <h3>Getting Started</h3>
-* Clone the repository.
-* Refresh maven file.
-* Set up the property: Edit and enter your database username password. 
-* Run the application: The API should now be running at localhost.
-* Set up the frontend: Follow the instructions in the frontend/README.md file.
+* Clone the repository.<br>
+* Refresh maven file. <br>
+* Set up the property: Edit and enter your database username password. <br>
+* Run the application: The API should now be running at localhost.<br>
+* Set up the frontend: Follow the instructions in the frontend/README.md file.<br>
 
 <h3>Endpoints</h3>
 
