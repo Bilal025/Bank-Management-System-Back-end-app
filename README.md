@@ -3,9 +3,9 @@
 Welcome to the Bank Management System project repository! This collaborative effort aims to provide a comprehensive solution for managing banking operations efficiently. We've successfully implemented both the front-end and back-end components, with a focus on user-friendly interfaces and robust backend functionality.
 
 <h3>Technologies Used</h3>
-Frontend: Angular, TypeScript, HTML, Tailwind CSS
-Backend: Spring Boot, Java, Spring Data JPA, Maven, JAVA JDK 17, REST API.
-Database: Oracle
+Frontend: Angular, TypeScript, HTML, Tailwind CSS<br>
+Backend: Spring Boot, Java, Spring Data JPA, Maven, JAVA JDK 17, REST API.<br>
+Database: Oracle<br>
 
 <h3>Getting Started</h3>
 * Clone the repository.<br>
