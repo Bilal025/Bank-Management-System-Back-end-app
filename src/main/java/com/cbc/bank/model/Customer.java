@@ -9,8 +9,6 @@ import lombok.Setter;
 import java.util.Set;
 
 @Entity
-@Data
-@Setter @Getter @NoArgsConstructor
 @Table(name="cbc_customer_table")
 public class Customer {
     @Id
@@ -89,4 +87,5 @@ public class Customer {
         this.customerPassword = customerPassword;
         this.customerBalance = customerBalance;
     }
+    public Customer() {}
 }
