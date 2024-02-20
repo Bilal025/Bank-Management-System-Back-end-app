@@ -31,51 +31,6 @@ public class Customer {
 
     @Column(name="balance")
     private float customerBalance;
-    
-    
-    
-    public int getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
-	}
-	public String getCustomerName() {
-		return customerName;
-	}
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
-	public long getCustomerNumber() {
-		return customerNumber;
-	}
-	public void setCustomerNumber(long customerNumber) {
-		this.customerNumber = customerNumber;
-	}
-	public String getCustomerUsername() {
-		return customerUsername;
-	}
-	public void setCustomerUsername(String customerUsername) {
-		this.customerUsername = customerUsername;
-	}
-	public String getCustomerPassword() {
-		return customerPassword;
-	}
-	public void setCustomerPassword(String customerPassword) {
-		this.customerPassword = customerPassword;
-	}
-	public float getCustomerBalance() {
-		return customerBalance;
-	}
-	public void setCustomerBalance(float customerBalance) {
-		this.customerBalance = customerBalance;
-	}
-	public Set<Transaction> getTransactions() {
-		return transactions;
-	}
-	public void setTransactions(Set<Transaction> transactions) {
-		this.transactions = transactions;
-	}
 	
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Transaction> transactions;

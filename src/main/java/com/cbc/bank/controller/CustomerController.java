@@ -6,6 +6,9 @@ import com.cbc.bank.model.Customer;
 import com.cbc.bank.model.CustomerWrapper;
 import com.cbc.bank.model.Transaction;
 import com.cbc.bank.utils.BankUtils;
+import org.slf4j.ILoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +24,13 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
+    Logger logger = LoggerFactory.getLogger(CustomerController.class);
+
     @PostMapping("/signup")
     public ResponseEntity<String> signup(@RequestBody Customer customer) {
         try {
             customerService.signup(customer);
+            logger.info("New sign-up is done");
             return BankUtils.getResponseEntity("Successfully registered", HttpStatus.OK);
 
         }catch (Exception e){
@@ -35,26 +41,24 @@ public class CustomerController {
 
     @PostMapping("/login") //  http://localhost:8099/customer/login
     public boolean login(@RequestBody CustomerWrapper customerWrapper) {
-    	boolean a = false;
-        try {
             boolean reply = customerService.login(customerWrapper);
             if(reply) {
-            	return true;
+                logger.info("Customer login success");
+                return true;
             }
             //return BankUtils.getResponseEntity("Login Success", HttpStatus.OK);
             else {
-            	a = false;
+                logger.info("Customer login fail");
+            	return false;
             }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
         //return BankUtils.getResponseEntity("Enter Valid Data", HttpStatus.INTERNAL_SERVER_ERROR);
-		return a;
+
     }
 
     @GetMapping("/get")
     public List<Customer> getAllUsers(){
         try {
+            logger.info("All customers are fetched");
             return customerService.getAll();
         }catch (Exception e){
             e.printStackTrace();
@@ -65,6 +69,7 @@ public class CustomerController {
     @GetMapping("/get/{username}")
     public Optional<Customer> getAllUsers(@PathVariable("username") String username){
         try {
+            logger.info("One customer is fetched");
             return customerService.getByUsername(username);
         }catch (Exception e){
             e.printStackTrace();
@@ -74,12 +79,14 @@ public class CustomerController {
 
     @GetMapping("/{username}")
     public boolean checkUsernameExists(@PathVariable("username") String username) {
+        logger.info("Checked the username availability");
         return customerService.checkUsernameExists(username);
     }
 
     @GetMapping("/gettransactions")
     public List<Transaction> getAllTransaction(){
         try {
+            logger.info("Showed the all transactions that have been done");
             return customerService.getAllTransaction();
         }catch (Exception e){
             e.printStackTrace();
@@ -91,6 +98,7 @@ public class CustomerController {
     @GetMapping("/transactions/{username}")
     public List<Transaction> getTransactionsByCustomerId(@PathVariable("username") String username) {
         try {
+            logger.info("Transaction displayed");
             return customerService.getTransactionsByUsername(username);
         } catch (Exception e) {
             e.printStackTrace();
@@ -113,6 +121,7 @@ public class CustomerController {
     public ResponseEntity<String> withdrawAmount(@PathVariable String username, @RequestParam float amount, @RequestBody BillerWrapper billerWrapper) {
         try {
             customerService.billPayment(username, amount, billerWrapper);
+            logger.info("Bill payment is done");
             return BankUtils.getResponseEntity("Payment Success", HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
@@ -135,6 +144,7 @@ public class CustomerController {
     public ResponseEntity<String> deposite(@RequestParam String username, @RequestParam float amount) {
         try {
             customerService.calculateDeposite(username, amount);
+            logger.info("Amount deposit is done");
             return BankUtils.getResponseEntity("Deposit Success", HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
@@ -147,6 +157,7 @@ public class CustomerController {
 
         try {
             customerService.calculateWithdraw(username, amount);
+            logger.info("Amount withdraw is done");
             return BankUtils.getResponseEntity("Withdraw Success", HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
@@ -164,6 +175,7 @@ public ResponseEntity<String> updateCustomerPassword(@RequestParam String userna
 
     @PutMapping(path="/fundTransfer")
     public ResponseEntity<String>fundTransfer(@RequestParam String senderUsername, @RequestParam Integer receiverAccountNo,@RequestParam float amount) {
+        logger.info("FundTransfer is done");
         return customerService.transferFund(senderUsername, receiverAccountNo, amount);
     }
 }
