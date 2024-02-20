@@ -18,86 +18,86 @@ Database: Oracle
 
 Sign Up:
 
-Endpoint: POST '/customer/signup'
-Description: Register a new customer.
-Request Body: Customer object.
+Endpoint: POST '/customer/signup'<br>
+Description: Register a new customer.<br>
+Request Body: Customer object.<br>
 
 Login:
 
-Endpoint: POST '/customer/login'
-Description: Authenticate a customer.
-Request Body: CustomerWrapper object containing username and password.
+Endpoint: POST '/customer/login'<br>
+Description: Authenticate a customer.<br>
+Request Body: CustomerWrapper object containing username and password.<br>
 
 Get All Customers:
 
-Endpoint: GET '/customer/get'
-Description: Retrieve a list of all customers.
+Endpoint: GET '/customer/get'<br>
+Description: Retrieve a list of all customers.<br>
 
 Get Customer by Username:
 
-Endpoint: GET '/customer/get/{username}'
-Description: Retrieve a customer by their username.
-Path Variable: username
+Endpoint: GET '/customer/get/{username}'<br>
+Description: Retrieve a customer by their username.<br>
+Path Variable: username<br>
 
 Check Username Availability:
 
-Endpoint: GET '/customer/{username}'
-Description: Check if a username is available.
-Path Variable: username
+Endpoint: GET '/customer/{username}'<br>
+Description: Check if a username is available.<br>
+Path Variable: username<br>
 
 Get All Transactions:
 
-Endpoint: GET '/customer/gettransactions'
-Description: Retrieve a list of all transactions.
+Endpoint: GET '/customer/gettransactions'<br>
+Description: Retrieve a list of all transactions.<br>
 
 Get Transactions by Username:
 
-Endpoint: GET '/customer/transactions/{username}'
-Description: Retrieve transactions for a specific customer.
-Path Variable: username
+Endpoint: GET '/customer/transactions/{username}'<br>
+Description: Retrieve transactions for a specific customer.<br>
+Path Variable: username<br>
 
 Save Transaction:
 
-Endpoint: POST '/customer/transactions/{username}'
-Description: Save a new transaction for a customer.
+Endpoint: POST '/customer/transactions/{username}'<br>
+Description: Save a new transaction for a customer.<br>
 Path Variable: username
 Request Body: Transaction object.
 Bill Payment:
 
-Endpoint: PUT '/customer/billpayment/{username}'
-Description: Process a bill payment for a customer.
-Path Variable: username
-Request Parameters: amount, billerWrapper (as request body).
+Endpoint: PUT '/customer/billpayment/{username}'<br>
+Description: Process a bill payment for a customer.<br>
+Path Variable: username<br>
+Request Parameters: amount, billerWrapper (as request body).<br>
 
 Delete Customer:
 
-Endpoint: DELETE '/customer/delete/{username}'
-Description: Delete a customer.
-Path Variable: username
+Endpoint: DELETE '/customer/delete/{username}'<br>
+Description: Delete a customer.<br>
+Path Variable: username<br>
 
 Deposit:
 
-Endpoint: PUT '/customer/deposit'
-Description: Deposit funds into a customer's account.
-Request Parameters: username, amount
+Endpoint: PUT '/customer/deposit'<br>
+Description: Deposit funds into a customer's account.<br>
+Request Parameters: username, amount<br>
 
 Withdraw:
 
-Endpoint: PUT '/customer/withdraw'
-Description: Withdraw funds from a customer's account.
-Request Parameters: username, amount
+Endpoint: PUT '/customer/withdraw'<br>
+Description: Withdraw funds from a customer's account.<br>
+Request Parameters: username, amount<br>
 
 Update Customer Password:
 
-Endpoint: PUT '/customer/updateCustomerPassword'
-Description: Update a customer's password.
-Request Parameters: username
-Request Body: Map containing currentPassword and newPassword.
+Endpoint: PUT '/customer/updateCustomerPassword'<br>
+Description: Update a customer's password.<br>
+Request Parameters: username<br>
+Request Body: Map containing currentPassword and newPassword.<br>
 
 Fund Transfer:
 
-Endpoint: PUT '/customer/fundTransfer'
-Description: Transfer funds between customer accounts.
-Request Parameters: senderUsername, receiverAccountNo, amount
+Endpoint: PUT '/customer/fundTransfer'<br>
+Description: Transfer funds between customer accounts.<br>
+Request Parameters: senderUsername, receiverAccountNo, amount<br>
 
 <h1>Thank You</h1>
