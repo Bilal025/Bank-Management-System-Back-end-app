@@ -32,7 +32,7 @@ public class CustomerService {
         customerRepository.save(customer);
     }
 
-    public boolean login(@RequestBody CustomerWrapper customerWrapper) {
+    public boolean login( CustomerWrapper customerWrapper) {
 
         try {
             String username = customerWrapper.getUsername();
@@ -155,7 +155,7 @@ public class CustomerService {
         }
     }
 
-    public void calculateDeposite(@RequestParam String username, float amount) {
+    public void calculateDeposite(String username, float amount) {
 
         try {
             Optional<Customer> customerOptional = customerRepository.findByCustomerUsername(username);
@@ -177,7 +177,7 @@ public class CustomerService {
         }
     }
 
-    public void calculateWithdraw(@RequestParam String username, float amount) {
+    public void calculateWithdraw(String username, float amount) {
 
         try {
             Optional<Customer> customerOptional = customerRepository.findByCustomerUsername(username);

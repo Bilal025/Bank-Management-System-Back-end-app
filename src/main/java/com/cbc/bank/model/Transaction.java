@@ -37,79 +37,6 @@ public class Transaction {
     @Temporal(TemporalType.DATE)
     @Column(name = "transaction_date", nullable = false)
     private Date transactionDate;
-    
-    
-    
-    public int getTransactionId() {
-		return transactionId;
-	}
-
-
-
-	public void setTransactionId(int transactionId) {
-		this.transactionId = transactionId;
-	}
-
-
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
-
-
-	public int getAccountNumber() {
-		return accountNumber;
-	}
-
-
-
-	public void setAccountNumber(int accountNumber) {
-		this.accountNumber = accountNumber;
-	}
-
-
-
-	public String getTransactionType() {
-		return transactionType;
-	}
-
-
-
-	public void setTransactionType(String transactionType) {
-		this.transactionType = transactionType;
-	}
-
-
-
-	public Double getAmount() {
-		return amount;
-	}
-
-
-
-	public void setAmount(Double amount) {
-		this.amount = amount;
-	}
-
-
-
-	public Date getTransactionDate() {
-		return transactionDate;
-	}
-
-
-
-	public void setTransactionDate(Date transactionDate) {
-		this.transactionDate = transactionDate;
-	}
-
 
 
 	public Transaction(int transactionId, int accountNumber, String transactionType, Double amount,
@@ -121,9 +48,4 @@ public class Transaction {
         this.transactionDate = transactionDate;
     }
 
-
-
-	public Transaction() {
-		// TODO Auto-generated constructor stub
-	}
 }
